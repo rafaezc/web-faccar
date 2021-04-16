@@ -4,8 +4,9 @@
 
 use yii\helpers\Html;
 
-$this->title = 'About';
+$this->title = 'Sobre nós';
 $this->params['breadcrumbs'][] = $this->title;
+$this->registerCss("h1 {font-size:78px}");
 ?>
 <div class="site-about">
     <h1><?= Html::encode($this->title) ?></h1>
