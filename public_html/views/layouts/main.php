@@ -11,7 +11,19 @@ use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
 AppAsset::register($this);
+
+$this->registerJs('
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        var positionInfo = "Your current position is (" + "Latitude: " + position.coords.latitude + ", " + "Longitude: " + position.coords.longitude + ")";
+        console.log(positionInfo);
+    });
+} else {
+    alert("Sorry, your browser does not support HTML5 geolocation.");
+}');
+
 ?>
+
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
@@ -26,13 +38,13 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
+<header>
     <?php
     NavBar::begin([
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'navbar'
         ],
     ]);
     echo Nav::widget([
@@ -58,15 +70,14 @@ AppAsset::register($this);
     ]);
     NavBar::end();
     ?>
+<header>
+    
+<?= Breadcrumbs::widget([
+    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+]) ?>
+<?= Alert::widget() ?>
+<?= $content ?>
 
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
-    </div>
-</div>
 
 <footer class="footer">
     <div class="container">
