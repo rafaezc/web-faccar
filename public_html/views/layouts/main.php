@@ -52,7 +52,9 @@ if (navigator.geolocation) {
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'Sobre', 'url' => ['/site/about']],
-            ['label' => 'Especialidades', 'url' => ['/especialidades/index']],
+            ['label' => 'Médicos', 'url' => ['/medico/index']],
+            ['label' => 'Clínicas', 'url' => ['/clinica/index']],
+            ['label' => 'Especialidades', 'url' => ['/especialidade/index']],
             ['label' => 'Contato', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
@@ -71,23 +73,27 @@ if (navigator.geolocation) {
     NavBar::end();
     ?>
 <header>
-    
-<?= Breadcrumbs::widget([
-    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-]) ?>
-<?= Alert::widget() ?>
-<?= $content ?>
 
+<?php if ($this->title != Yii::$app->name):?>
+    <div class="container">
+<?php endif;?>    
+        <?= Breadcrumbs::widget([
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        ]) ?>
+        <?= Alert::widget() ?>
+        <?= $content ?>
+<?php if ($this->title != Yii::$app->name):?>
+    </div>
+<?php endif;?>
 
 <footer class="footer">
     <div class="container">
         <p class="pull-left">&copy;<?= Yii::$app->name ?><?= date('Y') ?></p>
-
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
 </footer>
 
-<?php $this->endBody() ?>
+<?php $this->endBody(); ?>
 </body>
 </html>
-<?php $this->endPage() ?>
+<?php $this->endPage(); ?>
