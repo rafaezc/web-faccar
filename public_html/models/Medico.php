@@ -10,9 +10,11 @@ use Yii;
  * @property int $Medico_id
  * @property string $CRM
  * @property string|null $Nome
- * @property int|null $Telefone
+ * @property string|null $Telefone
  * @property string|null $Endereco
  * @property string|null $Bairro
+ * @property string|null $Cidade
+ * @property string|null $UF
  * @property int|null $IBGE
  * @property string|null $Email
  * @property int|null $tem_clinica
@@ -20,6 +22,7 @@ use Yii;
  * @property string|null $site
  * @property string $criado_em
  * @property string|null $atualizado_em
+ * @property int $destaque
  * @property int $status
  */
 class Medico extends \yii\db\ActiveRecord
@@ -38,13 +41,15 @@ class Medico extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['CRM', 'criado_em', 'status'], 'required'],
-            [['Telefone', 'IBGE', 'tem_clinica', 'status'], 'integer'],
+            [['CRM'], 'required'],
+            [['IBGE', 'tem_clinica', 'destaque', 'status'], 'integer'],
             [['criado_em', 'atualizado_em'], 'safe'],
             [['CRM'], 'string', 'max' => 18],
             [['Nome', 'Email'], 'string', 'max' => 80],
-            [['Endereco', 'Imagem', 'site'], 'string', 'max' => 145],
+            [['Telefone'], 'string', 'max' => 15],
+            [['Endereco', 'Cidade', 'Imagem', 'site'], 'string', 'max' => 145],
             [['Bairro'], 'string', 'max' => 60],
+            [['UF'], 'string', 'max' => 2],
             [['CRM'], 'unique'],
         ];
     }
@@ -61,6 +66,8 @@ class Medico extends \yii\db\ActiveRecord
             'Telefone' => Yii::t('app', 'Telefone'),
             'Endereco' => Yii::t('app', 'Endereco'),
             'Bairro' => Yii::t('app', 'Bairro'),
+            'Cidade' => Yii::t('app', 'Cidade'),
+            'UF' => Yii::t('app', 'Uf'),
             'IBGE' => Yii::t('app', 'Ibge'),
             'Email' => Yii::t('app', 'Email'),
             'tem_clinica' => Yii::t('app', 'Tem Clinica'),
@@ -68,7 +75,14 @@ class Medico extends \yii\db\ActiveRecord
             'site' => Yii::t('app', 'Site'),
             'criado_em' => Yii::t('app', 'Criado Em'),
             'atualizado_em' => Yii::t('app', 'Atualizado Em'),
+            'destaque' => Yii::t('app', 'Destaque'),
             'status' => Yii::t('app', 'Status'),
         ];
     }
+
+    public function getMedicoHasEspecialidade()
+    {
+        return $this->hasMany(MedicoHasEspecialidade::className(), ['Medico_id' => 'Medico_id']);
+    }
+
 }

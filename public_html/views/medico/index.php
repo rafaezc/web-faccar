@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 E-mail: <?php echo $linha->Email; ?> <br />
             </p>
             <p>
-                <a class="btn btn-primary" href="<?php echo Url::to('especialidade/view')?>" role="button">
+                <a class="btn btn-primary" href="<?php Url::toRoute(['medicos/view', 'id' => $linha->Medico_id]) ?>" role="button">
                     Ver Detalhes »
                 </a>
             </p>
