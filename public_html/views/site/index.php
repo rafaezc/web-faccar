@@ -1,5 +1,5 @@
 <?php
-
+use yii\helpers\Url;
 /* @var $this yii\web\View */
 
 $this->title = Yii::$app->name;
@@ -60,7 +60,7 @@ $this->title = Yii::$app->name;
                 <img class="img-circle" src="<?php echo $medico->Imagem ?>" alt="Foto do Dr(a). <?php echo $medico->Nome ?>" width="240" height="240" />
                 <h2><?php echo $medico->Nome ?></h2>
                 <p><?php echo $medico->CRM ?></p>
-                <p><a class="btn btn-default" href="<?php echo yii\helpers\Url::toRoute(['medico/view', 'id' => $medico->Medico_id]); ?>" role="button">Mais detalhes >></a></p>
+                <p><a class="btn btn-default" href="<?php echo Url::toRoute(['medico/view', 'id' => $medico->Medico_id]); ?>" role="button">Mais detalhes >></a></p>
         <!--<div class="col-lg-4 text-center">
             <img class="img-circle" src="/img/doctors/doctors-1.jpg" alt="Generic placeholder image" width="240" height="240">
             <h2>Heading</h2>

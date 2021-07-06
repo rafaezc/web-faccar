@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 </p>
 <hr>
 <div class="row">
-    <?php foreach ($medicos as $key => $linha):?>
+    <?php foreach ($medicos as $key => $linha): ?>
         <div class="col-lg-4">
             <img src="<?php echo $linha->Imagem; ?>" class="img-responsive" alt="<?php echo $linha->Nome; ?>">
             <h2><?php echo $linha->Nome; ?></h2>
@@ -23,12 +23,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 E-mail: <?php echo $linha->Email; ?> <br />
             </p>
             <p>
-                <a class="btn btn-primary" href="<?php Url::toRoute(['medicos/view', 'id' => $linha->Medico_id]) ?>" role="button">
+                <a class="btn btn-primary" href="<?php echo Url::toRoute(['medico/view', 'id' => $linha->Medico_id]) ?>" role="button">
                     Ver Detalhes »
                 </a>
             </p>
         </div>
-        <?php if((++$key > 0)  and ($key % 3 == 0)):?>
+        <?php if((++$key > 0)  and ($key % 3 == 0)): ?>
             </div>
             <hr>  
             <div class="row">

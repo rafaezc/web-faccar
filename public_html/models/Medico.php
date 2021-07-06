@@ -17,6 +17,7 @@ use Yii;
  * @property string|null $UF
  * @property int|null $IBGE
  * @property string|null $Email
+ * @property string|null $Desc_carreira
  * @property int|null $tem_clinica
  * @property string|null $Imagem
  * @property string|null $site
@@ -50,6 +51,7 @@ class Medico extends \yii\db\ActiveRecord
             [['Endereco', 'Cidade', 'Imagem', 'site'], 'string', 'max' => 145],
             [['Bairro'], 'string', 'max' => 60],
             [['UF'], 'string', 'max' => 2],
+            [['Desc_carreira'], 'string', 'max' => 500],
             [['CRM'], 'unique'],
         ];
     }
@@ -70,6 +72,7 @@ class Medico extends \yii\db\ActiveRecord
             'UF' => Yii::t('app', 'Uf'),
             'IBGE' => Yii::t('app', 'Ibge'),
             'Email' => Yii::t('app', 'Email'),
+            'Desc_carreira' => Yii::t('app', 'Desc Carreira'),
             'tem_clinica' => Yii::t('app', 'Tem Clinica'),
             'Imagem' => Yii::t('app', 'Imagem'),
             'site' => Yii::t('app', 'Site'),
@@ -80,6 +83,11 @@ class Medico extends \yii\db\ActiveRecord
         ];
     }
 
+    /**
+    * Gets query for [[MedicoHasEspecialidade]].
+    *
+    * @return \yii\db\ActiveQuery
+    */
     public function getMedicoHasEspecialidade()
     {
         return $this->hasMany(MedicoHasEspecialidade::className(), ['Medico_id' => 'Medico_id']);

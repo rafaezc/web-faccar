@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 Cidade: <?php echo $linha->Cidade; ?> - <?php echo $linha->UF; ?> - <?php echo $linha->CEP; ?>     
             </p>
             <p>
-                <a class="btn btn-primary" href="<?php echo Url::to('especialidade/view')?>" role="button">
+                <a class="btn btn-primary" href="<?php echo Url::toRoute(['clinica/view', 'id' => $linha->Clinica_id]) ?>" role="button">
                     Ver Detalhes »
                 </a>
             </p>

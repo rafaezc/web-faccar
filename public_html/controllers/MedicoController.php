@@ -30,7 +30,7 @@ class MedicoController extends \yii\web\Controller
         ->setMargin(5)
         ->useForegroundColor(0, 0, 0);
 
-        $qrCode->writeFile(Yii::getAlias('@web') . "img/{$medico->Medico_id}-{$medico->Nome}.png");
+        $qrCode->writeFile(Yii::getAlias('@web') . "img/doctors/qrcodes/{$medico->Medico_id}-{$medico->Nome}.png");
 
         return $this->render('view', [
             'medico' => $medico,

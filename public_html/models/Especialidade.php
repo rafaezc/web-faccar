@@ -49,8 +49,8 @@ class Especialidade extends \yii\db\ActiveRecord
     {
         return [
             'Especialidade_id' => Yii::t('app', 'Especialidade ID'),
-            'Titulo' => Yii::t('app', 'Título'),
-            'SubTitulo' => Yii::t('app', 'Sub-título'),
+            'Titulo' => Yii::t('app', 'Titulo'),
+            'SubTitulo' => Yii::t('app', 'Sub-Titulo'),
             'Texto' => Yii::t('app', 'Texto'),
             'Imagem' => Yii::t('app', 'Imagem'),
             'criado_em' => Yii::t('app', 'Criado Em'),

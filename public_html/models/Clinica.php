@@ -15,6 +15,7 @@ use Yii;
  * @property string|null $CEP
  * @property int|null $IBGE
  * @property string|null $Email
+ * @property string|null $Desc
  * @property string|null $Imagem
  * @property string $criado_em
  * @property string|null $atualizado_em
@@ -44,6 +45,7 @@ class Clinica extends \yii\db\ActiveRecord
             [['Bairro'], 'string', 'max' => 60],
             [['CEP'], 'string', 'max' => 10],
             [['Email'], 'string', 'max' => 80],
+            [['Desc'], 'string', 'max' => 500],
         ];
     }
 
@@ -61,10 +63,22 @@ class Clinica extends \yii\db\ActiveRecord
             'CEP' => Yii::t('app', 'Cep'),
             'IBGE' => Yii::t('app', 'Ibge'),
             'Email' => Yii::t('app', 'Email'),
+            'Desc' => Yii::t('app', 'Desc'),
             'Imagem' => Yii::t('app', 'Imagem'),
             'criado_em' => Yii::t('app', 'Criado Em'),
             'atualizado_em' => Yii::t('app', 'Atualizado Em'),
             'status' => Yii::t('app', 'Status'),
         ];
     }
+
+    /**
+    * Gets query for [[MedicoHasEspecialidade]].
+    *
+    * @return \yii\db\ActiveQuery
+    */
+    public function getMedicoHasEspecialidade()
+    {
+        return $this->hasMany(MedicoHasEspecialidade::className(), ['Clinica_id' => 'Clinica_id']);
+    }
+
 }
