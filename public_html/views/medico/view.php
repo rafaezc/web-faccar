@@ -5,7 +5,7 @@ use Da\QrCode\QrCode;
 /* @var $this yii\web\View */
 
 $this->title = "Card Dr. {$medico->Nome}";
-$this->params['breadcrumbs'][] = $this->title; //--cadastrar mais 2 médicos--//
+$this->params['breadcrumbs'][] = $this->title; 
 ?>
 <div class="row">
     <div class="col-md-9">
