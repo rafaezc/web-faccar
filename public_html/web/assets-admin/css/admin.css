@@ -105,6 +105,21 @@ color: #999;
     white-space: nowrap;
 }
 
+.especialidade-index {
+    word-break: keep-all;
+    white-space: nowrap;
+}
+
+.clinica-index {
+    word-break: keep-all;
+    white-space: nowrap;
+} 
+
+.medico-has-especialidade-index {
+    word-break: keep-all;
+    white-space: nowrap;
+}
+
 main {
     overflow-y: auto; 
     width: 100%;

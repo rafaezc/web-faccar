@@ -55,27 +55,33 @@ AppAsset::register($this);
                         <div class="sidebar-sticky pt-3">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="#">
+                                    <a class="nav-link active" href="<?php echo Url::to(['/admin']); ?>">
                                         <span data-feather="home"></span>
-                                        Dashboard <span class="sr-only">(current)</span>
+                                        Dashboard 
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo Url::to('admin/medico'); ?>">
+                                    <a class="nav-link" href="<?php echo Url::to(['/admin/medico']); ?>">
                                         <span data-feather="file"></span>
                                         Médicos
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
+                                    <a class="nav-link" href="<?php echo Url::to(['/admin/especialidade']); ?>">
                                         <span data-feather="shopping-cart"></span>
                                         Especialidades
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
+                                    <a class="nav-link" href="<?php echo Url::to(['/admin/clinica']); ?>">
                                         <span data-feather="users"></span>
-                                        Clinicas
+                                        Clínicas
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?php echo Url::to(['/admin/medico-has-especialidade']); ?>">
+                                        <span data-feather="users"></span>
+                                        MédicoEspecialidade
                                     </a>
                                 </li>
                                 <li class="nav-item">

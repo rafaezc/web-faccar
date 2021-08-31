@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\search\MedicoSearch */
+/* @var $searchModel app\models\search\ClinicaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Medicos';
+$this->title = 'Clinicas';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="medico-index">
+<div class="clinica-index">
     <div class="container">
-    
+
         <h1><?= Html::encode($this->title) ?></h1>
-    
+
         <p>
-            <?= Html::a('Create Medico', ['create'], ['class' => 'btn btn-success']) ?>
+            <?= Html::a('Create Clinica', ['create'], ['class' => 'btn btn-success']) ?>
         </p>
 
         <?php Pjax::begin(); ?>
@@ -29,16 +29,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 // ['class' => 'yii\grid\SerialColumn'],
                 [
                     'class' => 'yii\grid\DataColumn',
-                    'attribute' => 'Medico_id',
+                    'attribute' => 'Clinica_id',
                     // 'headerOptions' => ['class' => 'text-center'],
                     'label' => 'ID'
-                    // 'contentOptions' => ['style' => 'width: 30px;', 'class' => 'text-center'],
-                ],
-                [
-                    'class' => 'yii\grid\DataColumn',
-                    'attribute' => 'CRM',
-                    // 'headerOptions' => ['class' => 'text-center'],
-                    'label' => 'CRM'
                     // 'contentOptions' => ['style' => 'width: 30px;', 'class' => 'text-center'],
                 ],
                 [
@@ -57,6 +50,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 [
                     'class' => 'yii\grid\DataColumn',
+                    'attribute' => 'Email',
+                    // 'headerOptions' => ['class' => 'text-center'],
+                    'label' => 'E-mail',
+                    // 'contentOptions' => ['style' => 'width: 30px;', 'class' => 'text-center'],
+                ],
+                [
+                    'class' => 'yii\grid\DataColumn',
                     'attribute' => 'Endereco',
                     // 'headerOptions' => ['class' => 'text-center'],
                     'label' => 'Endereço'
@@ -67,6 +67,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     'attribute' => 'Bairro',
                     // 'headerOptions' => ['class' => 'text-center'],
                     'label' => 'Bairro'
+                    // 'contentOptions' => ['style' => 'width: 30px;', 'class' => 'text-center'],
+                ],
+                [
+                    'class' => 'yii\grid\DataColumn',
+                    'attribute' => 'CEP',
+                    // 'headerOptions' => ['class' => 'text-center'],
+                    'label' => 'CEP'
                     // 'contentOptions' => ['style' => 'width: 30px;', 'class' => 'text-center'],
                 ],
                 [
@@ -83,17 +90,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     'label' => 'UF'
                     // 'contentOptions' => ['style' => 'width: 30px;', 'class' => 'text-center'],
                 ],
-                [
-                    'class' => 'yii\grid\DataColumn',
-                    'attribute' => 'Email',
-                    // 'headerOptions' => ['class' => 'text-center'],
-                    'label' => 'E-mail',
-                    // 'contentOptions' => ['style' => 'width: 30px;', 'class' => 'text-center'],
-                ],
                 ['class' => 'yii\grid\ActionColumn'],
                 [
                     'class' => 'yii\grid\DataColumn',
-                    'attribute' => 'Medico_id',
+                    'attribute' => 'Clinica_id',
                     'filter' => '0',
                     'filterOptions' => ['style' => 'color: transparent; width: 30px; border: 1px solid white; background: white;'],
                     'headerOptions' => ['style' => 'color: transparent; width: 30px; border: 1px solid white; background: white;'],
@@ -101,30 +101,27 @@ $this->params['breadcrumbs'][] = $this->title;
                     'contentOptions' => ['style' => 'color: transparent; width: 30px; border: 1px solid white; background: white;'],
                 ] 
                 // Não apagar atributo acima. Importante para simetria.
-                
-                //'Medico_id',
-                //'CRM',
+
+                //'Clinica_id',
                 //'Nome',
                 //'Telefone',
                 //'Endereco',
                 //'Bairro',
                 //'Cidade',
                 //'UF',
+                //'CEP',
                 //'IBGE',
                 //'Email:email',
-                //'Desc_carreira',
-                //'tem_clinica',
+                //'Desc',
                 //'Imagem',
-                //'site',
                 //'criado_em',
                 //'atualizado_em',
-                //'destaque',
                 //'status',
 
             ]
         ]); ?>
 
         <?php Pjax::end(); ?>
-
+    
     </div>
 </div>

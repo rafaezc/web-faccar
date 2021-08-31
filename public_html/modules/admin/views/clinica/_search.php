@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\search\MedicoSearch */
+/* @var $model app\models\search\ClinicaSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="medico-search">
+<div class="clinica-search">
     <div class="container">
 
         <?php $form = ActiveForm::begin([
@@ -19,9 +19,7 @@ use yii\widgets\ActiveForm;
             ]
         ]); ?>
 
-        <?= $form->field($model, 'Medico_id') ?>
-
-        <?= $form->field($model, 'CRM') ?>
+        <?= $form->field($model, 'Clinica_id') ?>
 
         <?= $form->field($model, 'Nome') ?>
 
@@ -29,29 +27,25 @@ use yii\widgets\ActiveForm;
 
         <?= $form->field($model, 'Endereco') ?>
 
-        <?php // echo $form->field($model, 'Bairro') ?>
+        <?= $form->field($model, 'Bairro') ?>
 
         <?php // echo $form->field($model, 'Cidade') ?>
 
         <?php // echo $form->field($model, 'UF') ?>
 
+        <?php // echo $form->field($model, 'CEP') ?>
+
         <?php // echo $form->field($model, 'IBGE') ?>
 
         <?php // echo $form->field($model, 'Email') ?>
 
-        <?php // echo $form->field($model, 'Desc_carreira') ?>
-
-        <?php // echo $form->field($model, 'tem_clinica') ?>
+        <?php // echo $form->field($model, 'Desc') ?>
 
         <?php // echo $form->field($model, 'Imagem') ?>
-
-        <?php // echo $form->field($model, 'site') ?>
 
         <?php // echo $form->field($model, 'criado_em') ?>
 
         <?php // echo $form->field($model, 'atualizado_em') ?>
-
-        <?php // echo $form->field($model, 'destaque') ?>
 
         <?php // echo $form->field($model, 'status') ?>
 

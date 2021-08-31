@@ -4,21 +4,21 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Medico */
+/* @var $model app\models\Especialidade */
 
-$this->title = $model->Medico_id;
-$this->params['breadcrumbs'][] = ['label' => 'Medicos', 'url' => ['index']];
+$this->title = $model->Especialidade_id;
+$this->params['breadcrumbs'][] = ['label' => 'Especialidades', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="medico-view">
+<div class="especialidade-view">
     <div class="container">
 
         <h1><?= Html::encode($this->title) ?></h1>
 
         <p>
-            <?= Html::a('Update', ['update', 'id' => $model->Medico_id], ['class' => 'btn btn-primary']) ?>
-            <?= Html::a('Delete', ['delete', 'id' => $model->Medico_id], [
+            <?= Html::a('Update', ['update', 'id' => $model->Especialidade_id], ['class' => 'btn btn-primary']) ?>
+            <?= Html::a('Delete', ['delete', 'id' => $model->Especialidade_id], [
                 'class' => 'btn btn-danger',
                 'data' => [
                     'confirm' => 'Are you sure you want to delete this item?',
@@ -30,26 +30,16 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= DetailView::widget([
             'model' => $model,
             'attributes' => [
-                'Medico_id',
-                'CRM',
-                'Nome',
-                'Telefone',
-                'Endereco',
-                'Bairro',
-                'Cidade',
-                'UF',
-                'IBGE',
-                'Email:email',
-                'Desc_carreira',
-                'tem_clinica',
+                'Especialidade_id',
+                'Titulo',
+                'SubTitulo',
+                'Texto:ntext',
                 'Imagem',
-                'site',
                 'criado_em',
                 'atualizado_em',
-                'destaque',
                 'status'
             ]
         ]) ?>
-    
+
     </div>
 </div>
